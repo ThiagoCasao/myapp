@@ -1,5 +1,6 @@
 import React from "react"
 import { List, Typography } from 'antd';
+// import 'antd/dist/antd.css';
 
 const Users = props => (
   <div>
@@ -14,16 +15,7 @@ const Users = props => (
           <Typography.Text mark>[ITEM]</Typography.Text> {`${user.f_name} ${user.l_name}`}
         </List.Item>
       )}
-
-
     />
-
-
-    {/* <ul>
-      {props.users.map(user => (
-        <li key={user.id}>{`${user.f_name} ${user.l_name}`}</li>
-      ))}
-    </ul> */}
   </div>
 );
 

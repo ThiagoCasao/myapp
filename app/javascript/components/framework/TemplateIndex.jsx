@@ -14,7 +14,7 @@ class TemplateIndex extends React.Component {
       list: props.list,
       listColumns: props.listColumns,
       modalVisible: false,
-      modalRecord: props.new_user,
+      modalRecord: props.newRecord,
     };
   }
 
@@ -41,6 +41,25 @@ class TemplateIndex extends React.Component {
     });
   };
 
+  columns = [    
+    {
+      title: '',
+      key: 'action',
+      fixed: 'right',
+      render: (text, record) => (
+        <span>
+          <Button type="primary" onClick={(e) => this.showModal(e, record)}>
+            Editar
+          </Button>
+
+          <Button danger>
+            Desativar
+          </Button>          
+        </span>
+      ),
+    },
+  ]
+
   render() {
     return (
       <div>
@@ -49,10 +68,20 @@ class TemplateIndex extends React.Component {
         <Button type="primary" onClick={(e) => this.showModal(e, this.state.newRecord)}>
           Novo {this.props.objectName}
         </Button>
+        
+        <TemplateModal 
+          visible={this.state.modalVisible} 
+          hideModal={this.hideModal} 
+          form={this.props.form} 
+          record={this.state.modalRecord}
+        />
 
-        <TemplateModal visible={this.state.modalVisible} hideModal={this.hideModal} form={this.props.form}/>
-
-        <Table columns={this.state.listColumns} dataSource={this.state.list} size="small" rowKey={row => row.id} />
+        <Table 
+          columns={[...this.state.listColumns, ...this.columns]} 
+          dataSource={this.state.list} 
+          size="small" 
+          rowKey={row => row.id} 
+        />
       </div>
     );
   }

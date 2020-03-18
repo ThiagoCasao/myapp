@@ -1,15 +1,13 @@
 import React from "react"
-import { Button } from 'antd';
 import UserForm from './UserForm'
 import TemplateIndex from '../framework/TemplateIndex'
 
 class Index extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       list: props.users,
-      newRecord: props.new_user,
-      modalRecord: props.new_user,
     };
   }
 
@@ -28,33 +26,18 @@ class Index extends React.Component {
       title: 'Surname',
       dataIndex: 'l_name',
       key: 'l_name',
-    },
-    {
-      title: '',
-      key: 'action',
-      fixed: 'right',
-      render: (text, record) => (
-        <span>
-          <Button type="primary" onClick={(e) => this.showModal(e, record)}>
-            Editar
-          </Button>
-
-          <Button danger>
-            Desativar
-          </Button>          
-        </span>
-      ),
-    },
+    }
   ];
 
   render() {
     return (
       <TemplateIndex 
         list={this.state.list}
-        listColumns={this.columns} 
+        listColumns={this.columns}
+        newRecord={this.props.newUser}
         listName="Usuários"
         objectName="Usuário"
-        form={<UserForm record={this.state.modalRecord} onChange={fields => this.onChange(fields)}/>}
+        form={<UserForm onChange={fields => this.onChange(fields)} record={this.props.newUser}/>}
       />
     );
   }

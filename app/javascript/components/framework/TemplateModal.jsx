@@ -1,9 +1,13 @@
 import React from "react"
-import { Button, Modal, Table, Form, Input } from 'antd';
+import { Modal } from 'antd';
 
-class Template extends React.Component {
+class TemplateModal extends React.Component {
   handleOk = e => { this.props.hideModal(); };
   handleCancel = e => { this.props.hideModal(); };
+
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (
@@ -15,10 +19,10 @@ class Template extends React.Component {
         onCancel={this.handleCancel}
         cancelText="Cancelar"
       >
-      {this.props.form}
+        {this.props.form}
     </Modal>
     );    
   }
 }
   
-export default Template
+export default TemplateModal

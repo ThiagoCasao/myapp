@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, Modal, Table, Form, Input } from 'antd';
+import { Form, Input } from 'antd';
 
 
 class UserForm extends React.Component {
@@ -8,6 +8,13 @@ class UserForm extends React.Component {
     f_name: "",
     l_name: "",
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      record: props.record,
+    };
+  }  
 
   change = e => {
     this.props.onChange({ [e.target.name]: e.target.value });
@@ -41,7 +48,7 @@ class UserForm extends React.Component {
           label="Nome"
           placeholder="First name"
           rules={[{ required: true, message: 'Please input the f_name of collection!' }]}
-        >
+        >          
           <Input value={this.state.f_name} onChange={e => this.change(e)}/>
         </Form.Item>
         

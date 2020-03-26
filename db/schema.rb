@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_06_173231) do
+ActiveRecord::Schema.define(version: 2020_03_23_184640) do
 
   create_table "users", force: :cascade do |t|
     t.string "f_name"
     t.string "l_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "discarded_at"
+    t.index ["discarded_at"], name: "index_users_on_discarded_at"
   end
 
 end

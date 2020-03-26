@@ -68,6 +68,8 @@ GEM
     concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
     crass (1.0.6)
+    discard (1.2.0)
+      activerecord (>= 4.2, < 7)
     erubi (1.9.0)
     execjs (2.7.0)
     faker (2.10.2)
@@ -193,6 +195,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
+  discard
   faker (~> 2.10)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)

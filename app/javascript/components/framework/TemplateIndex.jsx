@@ -70,10 +70,10 @@ class TemplateIndex extends React.Component {
         </Button>
         
         <TemplateModal 
-          visible={this.state.modalVisible} 
-          hideModal={this.hideModal} 
-          form={this.props.form} 
+          form={this.props.form}
           record={this.state.modalRecord}
+          visible={this.state.modalVisible}
+          hideModal={this.hideModal}
         />
 
         <Table 

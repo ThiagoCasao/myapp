@@ -19,7 +19,14 @@ class TemplateModal extends React.Component {
         onCancel={this.handleCancel}
         cancelText="Cancelar"
       >
-        {this.props.form}
+        {/* {this.props.form} */}
+        <Form
+          layout="vertical"
+          name="form_in_modal"
+          initialValues={{ modifier: 'public' }}
+        >
+          { this.props.contents.map(element => { return element; }) }
+        </Form>
     </Modal>
     );    
   }

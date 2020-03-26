@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    put :inactivate    
+    post :save
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
